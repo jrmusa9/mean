@@ -1,0 +1,16 @@
+<h2>{{session}} Ended the bid </h2>
+
+<p>Highest bidder per product</p>
+
+
+
+<h3>{{winner1.bid1.product}}: ${{winner1.bid1.amount}} </h3><span>{{winner1._userName}}</span>
+<h3>{{winner2.bid2.product}}: ${{winner2.bid2.amount}} </h3><span>{{winner2._userName}}</span>
+<h3>{{winner3.bid3.product}}: ${{winner3.bid3.amount}} </h3><span>{{winner3._userName}}</span>
+  
+
+
+<br>
+
+<button (click)='startBid()'>Start Bit</button>
+<button (click)='logOut()'>Log Out</button>

@@ -1,0 +1,72 @@
+<style>
+  .productBox{
+    display: inline-block;
+    width: 200px;
+    /* height: 200px; */
+    border: 1px solid  black;
+    vertical-align: top;
+  }
+  button{
+    display: block;
+  }
+</style>
+
+<h1>Bid Now!</h1>
+
+<!-- 
+  Your Name: <input type="text" name="name" required minlength="3" [(ngModel)]='user.name' #login='ngModel'>
+  <input type="Submit" value="END BID">
+  <span *ngIf='!login.valid && login.dirty'>Name must be 3 characters min</span> -->
+
+
+
+<div class="productBox">
+  <form (submit) = 'bidding()'>
+    <h3>Mackbook</h3>
+    <input type="text" name="bidAmount" id="" required min="1" [(ngModel)]='bid.bid1.amount' #login='ngModel'>
+    <input type="submit" value="Bid!">
+    <span *ngIf='!login.valid && login.dirty'>Must bid more than $0</span> 
+  </form>
+  <br>
+  <div>
+    Current Bids:
+    <div *ngFor='let j of allBids'>
+      <p *ngIf='j.bid1.amount > 0'>{{j._userName}}: ${{j.bid1.amount}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="productBox">
+  <form (submit) = 'bidding(Watch)'>
+    <h3>Watch</h3>
+    <input type="text" name="bidAmount" id="" [(ngModel)]='bid.bid2.amount'>
+    <input type="submit" value="Bid!">
+  </form>
+  <br>
+  <div>
+      Current Bids:
+      <div *ngFor='let r of allBids'>
+        <p *ngIf='r.bid2.amount > 0'>{{r._userName}}: ${{r.bid2.amount}}</p>
+      </div>
+    </div>
+</div>
+
+<div class="productBox">
+  <form (submit) = 'bidding(Car)'>
+    <h3>Car</h3>
+    <input type="text" name="bidAmount" id="" [(ngModel)]='bid.bid3.amount'>
+    <input type="submit" value="Bid!">
+  </form>
+  <br>
+  <div>
+      Current Bids:
+      <div *ngFor='let t of allBids'>
+        <p *ngIf='t.bid3.amount > 0'>{{t._userName}}: ${{t.bid3.amount}}</p>
+      </div>
+    </div>
+</div>
+
+
+
+<button (click)='endBid()'>End Bid</button>
+<button (click)='logOut()'>Log Out</button>
